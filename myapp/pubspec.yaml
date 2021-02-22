@@ -49,7 +49,22 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
+  assets:
+    - assets/slider1.jpeg
+    - assets/slider2.png
+    - assets/slider3.jpeg
+    - assets/017-education.png
+    - assets/020-fantasy.png
+    - assets/021-health.png
+    - assets/022-history.png
+    - assets/028-literature.png
+    - assets/037-relationship.png
+    - assets/038-romance.png
+    - assets/039-science.png
+    - assets/041-social science.png
+    - assets/042-sports.png
+    - assets/044-technology.png
+    - assets/047-transportation.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
