@@ -9,12 +9,67 @@ class ProductHome extends StatefulWidget {
 class _ProductHomeState extends State<ProductHome> {
   var product_list = [
     {
-      "name": "Percy Jackson and the lightning thief",
+      "name": "Percy Jackson and The Lightning Thief",
       "picture": "assets/products/1.jpg",
       "price": 22.57,
     },
     {
-      "name": "Harry Porter and the Socerer stone",
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
       "picture": "assets/products/2.jpg",
       "price": 16.57,
     }
@@ -47,7 +102,7 @@ class SingleProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Hero(
-        tag: this.product_name,
+        tag: new Text("product_hero"),
         child: Material(
           child: InkWell(
             onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new ProductDetail(product_detail_name: this.product_name, product_detail_picture: this.product_picture, price_detail: this.price))),
@@ -56,7 +111,7 @@ class SingleProduct extends StatelessWidget {
                 height: 55.0,
                 color: Colors.white70,
                 child: ListTile(
-                  leading: Text(this.product_name.substring(0, 25) + "... \n\$" + price.toString(), style: TextStyle(fontWeight: FontWeight.bold),),
+                  leading: Text(this.product_name.substring(0, 28) + "... \n\$" + price.toString(), style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
               ),
               child: Image.asset(

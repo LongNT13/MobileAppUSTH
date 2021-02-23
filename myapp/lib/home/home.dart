@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:myapp/home/product_home.dart';
+import 'package:myapp/cart/cart.dart';
 
 import 'category_home.dart';
 
@@ -24,6 +25,7 @@ class _HomePageState extends State<HomePage> {
         autoplay: true,
         dotSize: 5.0,
         indicatorBgPadding: 10.0,
+        dotBgColor: Colors.transparent,
       ),
     );
 
@@ -43,7 +45,9 @@ class _HomePageState extends State<HomePage> {
                 Icons.shopping_cart,
                 color: Colors.white,
               ),
-              onPressed: () {})
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => new CartPage()));
+              })
         ],
       ),
       drawer: new Drawer(
@@ -84,13 +88,6 @@ class _HomePageState extends State<HomePage> {
               child: ListTile(
                 title: Text('Orders'),
                 leading: Icon(Icons.shopping_basket),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Categories'),
-                leading: Icon(Icons.dashboard),
               ),
             ),
             InkWell(

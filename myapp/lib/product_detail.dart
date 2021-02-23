@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/home/home.dart';
 
 class ProductDetail extends StatefulWidget {
   final product_detail_name;
@@ -20,7 +21,10 @@ class _ProductDetailState extends State<ProductDetail> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
-        title: Text('BookShop'),
+        title: InkWell(
+          onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => new HomePage()));},
+          child: Text('BookShop'),
+        ) ,
         actions: <Widget>[
           new IconButton(
               icon: Icon(
@@ -28,12 +32,6 @@ class _ProductDetailState extends State<ProductDetail> {
                 color: Colors.white,
               ),
               onPressed: () {}),
-          new IconButton(
-              icon: Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
-              ),
-              onPressed: () {})
         ],
       ),
       body: new ListView(
@@ -144,8 +142,144 @@ class _ProductDetailState extends State<ProductDetail> {
               child: new Text(widget.product_detail_name),
               )
             ],
+          ),
+          Divider(color:Colors.black),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Similar Product"),
+          ),
+          Container(
+            height: 360,
+            child: SimilarProduct(),
           )
         ],
+      ),
+    );
+  }
+}
+
+
+class SimilarProduct extends StatefulWidget {
+  @override
+  _SimilarProductState createState() => _SimilarProductState();
+}
+
+class _SimilarProductState extends State<SimilarProduct> {
+  var product_list = [
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Percy Jackson and The Lightning Thief",
+      "picture": "assets/products/1.jpg",
+      "price": 22.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    },
+    {
+      "name": "Harry Porter and The Socerers Stone",
+      "picture": "assets/products/2.jpg",
+      "price": 16.57,
+    }
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+        itemCount: product_list.length,
+        gridDelegate:
+            new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemBuilder: (BuildContext context, int index) {
+          return SimilarSingleProduct(
+            product_name: product_list[index]['name'],
+            product_picture: product_list[index]['picture'],
+            price: product_list[index]['price'],
+          );
+        });
+  }
+}
+
+class SimilarSingleProduct extends StatelessWidget {
+  final String product_name;
+  final String product_picture;
+  final price;
+
+  SimilarSingleProduct(
+      {this.product_name, this.product_picture, this.price});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Hero(
+        tag: new Text("product_hero"),
+        child: Material(
+          child: InkWell(
+            onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new ProductDetail(product_detail_name: this.product_name, product_detail_picture: this.product_picture, price_detail: this.price))),
+            child: GridTile(
+              footer: Container(
+                height: 55.0,
+                color: Colors.white70,
+                child: ListTile(
+                  leading: Text(this.product_name.substring(0, 28) + "... \n\$" + price.toString(), style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
+              ),
+              child: Image.asset(
+                product_picture,
+                fit: BoxFit.contain
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
