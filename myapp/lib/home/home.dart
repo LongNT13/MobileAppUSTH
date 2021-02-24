@@ -122,14 +122,14 @@ class _HomePageState extends State<HomePage> {
           image_carousel,
           // padding widget all
           new Padding(padding: const EdgeInsets.all(10.0),
-          child: new Text('Categories'),
+          child: new Text('Categories', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, color: Colors.black54),),
           ),
           CategoryHome(),
 
           // 
           new Padding(
             padding: const EdgeInsets.all(20.0),
-            child: new Text('Products'),
+            child: new Text('Products', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, color: Colors.black54)),
           ),
 
           // grid view

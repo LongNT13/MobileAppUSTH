@@ -44,36 +44,48 @@ class SingleCartProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: new Image.asset(cart_product_picture, width:80.0, height: 80.0),
-        title: Text(cart_product_name),
-        subtitle: Column(
-          children: <Widget>[
-            // new Row(
-            //   children: <Widget>[
-            //     Padding(
-            //       padding: const EdgeInsets.all(8.0),
-            //       child: new Text("Quantity: ")
-            //     ),
-            //     Padding(
-            //       padding: const EdgeInsets.all(8.0),
-            //       child: new Text(cart_product_quantity, style: TextStyle(color: Colors.red),)
-            //     )
-            //   ],
-            // ),
-            Container(
-              alignment: Alignment.topLeft,
-              child: new Text("\$${cart_product_price}", style: TextStyle(color: Colors.red, fontSize: 16, fontWeight: FontWeight.bold),),
-            )
-          ],
-        ),
-        trailing: new Column(
-          children: <Widget>[
-            new IconButton(icon: Icon(Icons.arrow_drop_up), onPressed: (){}),
-            new Text("$cart_product_quantity"),
-            new IconButton(icon: Icon(Icons.arrow_drop_down), onPressed: (){}),
-          ],
+    return Container(
+      height: 90.0,
+      child: Card(
+        child: ListTile(
+          leading: new Image.asset(cart_product_picture, width:80.0, height: 80.0),
+          title:  Container(
+            padding: EdgeInsets.fromLTRB(1.0, 5.0, 20.0, 5.0),
+            child: Text(cart_product_name)
+          ),
+          subtitle: Column(
+            children: <Widget>[
+              // new Row(
+              //   children: <Widget>[
+              //     Padding(
+              //       padding: const EdgeInsets.all(8.0),
+              //       child: new Text("Quantity: ")
+              //     ),
+              //     Padding(
+              //       padding: const EdgeInsets.all(8.0),
+              //       child: new Text(cart_product_quantity, style: TextStyle(color: Colors.red),)
+              //     )
+              //   ],
+              // ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: new Text("\$${cart_product_price}", style: TextStyle(color: Colors.red, fontSize: 16.0, fontWeight: FontWeight.bold),),
+              )
+            ],
+          ),
+          trailing: Container(
+            padding: EdgeInsets.all(0.0),
+            child: Wrap(
+              children: <Widget>[
+                new IconButton(icon: Icon(Icons.arrow_left), onPressed: (){}),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0.0, 17.9, 0.0, 0.0),
+                  child: new Text("$cart_product_quantity")
+                ),
+                new IconButton(icon: Icon(Icons.arrow_right), onPressed: (){}),
+              ],
+            ),
+          ),
         ),
       ),
     );

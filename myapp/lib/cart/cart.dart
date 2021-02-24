@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/cart/cart_product.dart'
+import 'package:myapp/cart/cart_product.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -32,9 +32,12 @@ class _CartPageState extends State<CartPage> {
               subtitle: Text("\$230"),
             )),
             Expanded(
-              child: new MaterialButton(onPressed: (){},
-                child: Text("Check out", style: TextStyle(color: Colors.white)),
-                color: Colors.red,
+              child: Container(
+                padding: EdgeInsets.all(5.0),
+                child: MaterialButton(onPressed: (){},
+                  child: Text("Check out", style: TextStyle(color: Colors.white)),
+                  color: Colors.red,
+                ),
               ),
             ),
           ],

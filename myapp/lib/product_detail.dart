@@ -146,7 +146,7 @@ class _ProductDetailState extends State<ProductDetail> {
           Divider(color:Colors.black),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Similar Product"),
+            child: Text("Similar Products"),
           ),
           Container(
             height: 360,
